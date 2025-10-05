@@ -1,25 +1,25 @@
-export type ExamStatus =
-  | 'pending' // aguardando laudo
-  | 'in_process' // em processo
-  | 'in_review' // revisão
-  | 'rectification' // retificação
-  | 'audited' // auditado
-  | 'reported' // laudados
-  | 'delivered'; // entregues
+export type ExamFileStatus =
+  | 'PENDING'
+  | 'PROCESSING'
+  | 'DONE'
+  | 'ERROR'
+  | string;
 
-export interface ExamDTO {
-  id: number;
-  modality: 'CT' | 'MR' | 'XR' | 'US' | 'MG' | 'NM' | 'OT';
-  examName: string;
-  patientName: string;
-  patientId: string;
-  examDate: string; // ISO
-  type: 'Eletivo' | 'Urgente';
-  criticalFindings: boolean;
-  images: number;
-  status: ExamStatus;
+export interface ExamFileDTO {
+  id: string;
+  name: string | null;
+  status: ExamFileStatus;
+  file_url?: string | null;
+  data_exame: string | null;
+  created_at: string;
+  updated_at: string;
+  token_id: string;
+  mod?: string | null;
+  paciente?: string | null;
+  instituicao?: string | null;
+  exame_desc?: string | null;
+  id_paciente?: string | null;
 }
-
 export interface User {
   id: string;
   name: string;
