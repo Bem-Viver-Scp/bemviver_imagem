@@ -20,6 +20,19 @@ export interface ExamFileDTO {
   exame_desc?: string | null;
   id_paciente?: string | null;
 }
+
+export interface ExamDTO {
+  id: number;
+  modality: string;
+  examName: string;
+  patientName: string;
+  patientId: string;
+  examDate: string;
+  type: 'Eletivo' | 'Urgente' | 'Emergência' | string;
+  criticalFindings: boolean;
+  images: number;
+  status: 'pending' | 'in_process' | 'completed' | 'canceled' | string;
+}
 export interface User {
   id: string;
   name: string;
