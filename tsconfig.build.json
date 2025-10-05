@@ -1,10 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",        // ok para Vite
+    "jsx": "react-jsx",
+    "esModuleInterop": true,              // corrige TS1259
+    "allowSyntheticDefaultImports": true, // idem
+    "skipLibCheck": true,
+
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "jsx": "react-jsx"
+
+    "types": ["vite/client"]              // corrige import.meta.env
   },
-  "include": ["src"]
+  "include": ["src", "env.d.ts"]
 }
