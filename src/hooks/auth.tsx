@@ -61,13 +61,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       api.defaults.headers.authorization = `Bearer ${token}`;
       setData({ token, user, refresh_token });
 
-      navigate(
-        user.role === 'master' ||
-          user.role === 'admin' ||
-          user.role === 'coordinator'
-          ? '/admin'
-          : '/dashboard'
-      );
+      navigate('/dashboard');
     },
     [navigate]
   );
