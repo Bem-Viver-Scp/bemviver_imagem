@@ -50,11 +50,11 @@ export default function StatCard({
               className={cn(
                 'rounded-full px-2.5 py-0.5 text-xs ring-1',
                 c.tone === 'green' &&
-                  'bg-emerald-500/15 text-emerald-300 ring-emerald-400/30',
+                  'bg-emerald-500/15 text-[var(--primary)] ring-emerald-400/30',
                 c.tone === 'red' &&
                   'bg-rose-500/15 text-rose-300 ring-rose-400/30',
                 c.tone === 'blue' &&
-                  'bg-sky-500/15 text-sky-300 ring-sky-400/30',
+                  'bg-sky-500/15 text-[var(--info)] ring-sky-400/30',
                 c.tone === 'yellow' &&
                   'bg-amber-500/15 text-amber-300 ring-amber-400/30'
               )}

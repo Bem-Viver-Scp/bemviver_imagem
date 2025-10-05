@@ -36,8 +36,7 @@ export default function Login() {
 
       toast.success('Login realizado com sucesso!');
 
-      const to = loc.state?.from?.pathname ?? '/';
-      nav(to, { replace: true });
+      nav('/dashboard');
     } catch (err: any) {
       if (err.name === 'ValidationError') {
         setErrors(getValidationErrors(err));
@@ -50,7 +49,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen grid place-items-center px-4">
+    <div className="min-h-screen grid place-items-center px-4 bg-[var(--primary)]">
       <div className="w-full max-w-sm rounded-2xl bg-[var(--card)] ring-1 ring-[var(--ring)] p-6">
         <div className="flex items-center gap-3 mb-6">
           <img
@@ -142,8 +141,8 @@ export default function Login() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full rounded-xl bg-white/10 px-3 py-2 hover:bg-white/20 transition
-                       disabled:opacity-60 hover:cursor-pointer mt-4"
+            className="w-full rounded-xl bg-[var(--primary)] text-white px-3 py-2 hover:bg-[var(--primary)]/90 transition
+                       disabled:opacity-60 hover:cursor-pointer mt-4 "
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>

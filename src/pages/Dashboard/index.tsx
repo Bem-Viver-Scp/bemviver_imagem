@@ -17,7 +17,9 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Visão geral</h2>
+      <h2 className="text-xl font-semibold text-[var(--primary-dark)]">
+        Visão geral
+      </h2>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <StatCard

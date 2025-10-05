@@ -1,20 +1,24 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import { LogOut, Stethoscope } from 'lucide-react';
 import { useAuth } from '../../services/auth';
+import { useAuth as useAuthContext } from '../../hooks/auth';
 import ThemeToggle from '../../components/ThemeToogle';
 
 export default function PrivateLayout() {
-  const { userName, logout } = useAuth();
+  const { userName } = useAuth();
+  const { signOut } = useAuthContext();
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b border-white/10 bg-bg-soft">
+      <header className="border-b border-white/10 bg-[var(--primary)] ">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* <Stethoscope className="size-6" /> */}
             <img src="/logo.svg" alt="Bem Viver Logotipo" width={36} />
 
-            <span className="font-semibold">Bem Viver Imagens • Painel</span>
+            <span className="font-semibold text-white">
+              Bem Viver Imagens • Painel
+            </span>
             <nav className="ml-6 flex gap-4 text-sm">
               <NavLink
                 to="/dashboard"
@@ -41,10 +45,9 @@ export default function PrivateLayout() {
           </div>
           <div className="flex items-center gap-3 text-sm">
             <span className="text-white/70">Olá, {userName}</span>
-            <ThemeToggle />
             <button
-              onClick={logout}
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-1.5 hover:bg-white/20 transition"
+              onClick={signOut}
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-1.5 hover:bg-white/20 transition text-white"
               title="Sair"
             >
               <LogOut className="size-4" />
@@ -54,7 +57,7 @@ export default function PrivateLayout() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 bg-[var(--on-secondary)] ">
         <div className="mx-auto max-w-7xl p-4 md:p-6 text-[var(--fg)]">
           <Outlet />
         </div>

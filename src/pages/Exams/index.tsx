@@ -126,7 +126,9 @@ export default function ExamsTable() {
     <div className="space-y-4">
       <div className="flex items-end justify-between gap-3 flex-wrap">
         <div>
-          <h2 className="text-xl font-semibold">Exames</h2>
+          <h2 className="text-xl font-semibold text-[var(--primary-dark)]">
+            Exames
+          </h2>
         </div>
         <input
           placeholder="Buscar por nome ou ID…"
@@ -188,7 +190,7 @@ export default function ExamsTable() {
                         onClick={() => handleDownload(e.id)}
                         disabled={!done || isDownloading}
                         className="inline-flex items-center justify-center rounded-xl p-2 ring-1 ring-[var(--ring)] 
-                                   hover:ring-[var(--ring-2)] bg-white/10 hover:bg-white/20 transition 
+                                   hover:ring-[var(--ring-2)] bg-white/10 hover:bg-white/20 transition hover:cursor-pointer
                                    disabled:opacity-50"
                         title={
                           done
@@ -215,7 +217,7 @@ export default function ExamsTable() {
                             />
                           </svg>
                         ) : (
-                          <Printer className="size-4 text-white/70" />
+                          <Printer className="size-4 text-[var(--primary-dark)]/70" />
                         )}
                       </button>
                     </td>

@@ -9,7 +9,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AppProvider>
-        <ToastContainer position="top-right" autoClose={3000} theme="dark" />
+        <ToastContainer position="top-right" autoClose={3000} theme="light" />
         <AppRouter />
       </AppProvider>
     </BrowserRouter>
