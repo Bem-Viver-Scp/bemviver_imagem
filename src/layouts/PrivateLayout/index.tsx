@@ -17,7 +17,7 @@ export default function PrivateLayout() {
             <span className="font-semibold">Bem Viver Imagens • Painel</span>
             <nav className="ml-6 flex gap-4 text-sm">
               <NavLink
-                to="/"
+                to="/dashboard"
                 className={({ isActive }) =>
                   `transition hover:opacity-80 ${
                     isActive ? 'text-white' : 'text-white/70'
@@ -26,8 +26,9 @@ export default function PrivateLayout() {
               >
                 Dashboard
               </NavLink>
+
               <NavLink
-                to="/exams"
+                to="/exames"
                 className={({ isActive }) =>
                   `transition hover:opacity-80 ${
                     isActive ? 'text-white' : 'text-white/70'
