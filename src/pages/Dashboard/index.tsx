@@ -7,18 +7,51 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import StatCard from '../../components/StatCard';
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
 
 export default function Dashboard() {
   const nav = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
   const go = (status: string) => nav(`/exams?status=${status}`);
+
+  const getAppointment = async () => {
+    setLoading(true);
+    try {
+      const response = await api.get(`/examFile`);
+
+      setData(response.data);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getAppointment();
+  }, []);
 
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Visão geral</h2>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <StatCard
+        {data.map((item: any) => (
+          <StatCard
+            key={item.id}
+            title="Exames a Laudar"
+            subtitle="Aguardando laudo"
+            value={item.id}
+            icon={<ClipboardList className="size-6 text-white/70" />}
+            to="/exams?status=pending"
+            chips={[
+              { label: '16U', tone: 'red' },
+              { label: '22E', tone: 'green' },
+            ]}
+          />
+        ))}
+        {/* <StatCard
           title="Exames a Laudar"
           subtitle="Aguardando laudo"
           value={38}
@@ -69,7 +102,7 @@ export default function Dashboard() {
           value={0}
           icon={<FileWarning className="size-6 text-white/70" />}
           to="/exams?status=in_review"
-        />
+        /> */}
       </div>
     </div>
   );

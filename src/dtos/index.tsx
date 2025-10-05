@@ -7,7 +7,7 @@ export type ExamStatus =
   | 'reported' // laudados
   | 'delivered'; // entregues
 
-export type ExamDTO = {
+export interface ExamDTO {
   id: number;
   modality: 'CT' | 'MR' | 'XR' | 'US' | 'MG' | 'NM' | 'OT';
   examName: string;
@@ -18,4 +18,33 @@ export type ExamDTO = {
   criticalFindings: boolean;
   images: number;
   status: ExamStatus;
-};
+}
+
+export interface User {
+  id: string;
+  name: string;
+  cellphone: string;
+  logo_url: string;
+  avatar: string;
+  avatar_url: string;
+  verified: boolean;
+  role: string;
+  email: string;
+  cpf: string;
+  rg: string;
+  crm: string;
+  sus: string;
+  bank: string;
+  agency: string;
+  account: string;
+  street: string;
+  complemento: string;
+  number: string;
+  cep: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+  created_at: Date;
+  updated_at: Date;
+  birthday: Date;
+}
