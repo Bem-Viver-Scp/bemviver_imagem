@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Printer } from 'lucide-react';
-import type { ExamFileDTO } from '../../dtos';
+import type { ExamDTO } from '../../dtos';
 import api from '../../services/api';
 
 function useQuery() {
@@ -24,7 +24,7 @@ function formatDate(iso?: string | null) {
 
 export default function ExamsTable() {
   const [loading, setLoading] = useState(false);
-  const [rows, setRows] = useState<ExamFileDTO[]>([]);
+  const [rows, setRows] = useState<ExamDTO[]>([]);
   const [search, setSearch] = useState('');
   const [downloading, setDownloading] = useState<Record<string, boolean>>({});
   const q = useQuery();
@@ -33,7 +33,7 @@ export default function ExamsTable() {
   async function getExamFiles() {
     setLoading(true);
     try {
-      const { data } = await api.get<ExamFileDTO[]>('/examFile');
+      const { data } = await api.get<ExamDTO[]>('/examFile');
       setRows(Array.isArray(data) ? data : []);
     } finally {
       setLoading(false);

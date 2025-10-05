@@ -5,7 +5,7 @@ export type ExamFileStatus =
   | 'ERROR'
   | string;
 
-export interface ExamFileDTO {
+export interface ExamDTO {
   id: string;
   name: string | null;
   status: ExamFileStatus;
